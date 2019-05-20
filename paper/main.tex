@@ -1,0 +1,75 @@
+\documentclass[12pt, a4paper, oneside]{ugentarticle}
+
+% This document is an unofficial template based on the UGent design 
+% for an article, report or other common documents.
+%
+% The ugentarticle class is based on the article document class.
+%
+% Also see the official UGent style guide for more 
+% information,  https://styleguide.ugent.be/?lang=en.
+% 
+% The document has English comments so anyone can use it. But the rest of the document 
+% is Dutch - Dutch logos, Dutch example text, Babel package configuration is Dutch, etc.
+
+% Packages
+
+% The following packages are already loaded by the class ugentarticle:
+%      + geometry
+%      + parskip
+%      + url
+%      + hyperref
+%      + graphicx
+%      + fancyhdr
+%      + tocloft
+%      + fontspec
+%      + sectsty
+%      + anyfontsize
+%      + xcolor
+
+\usepackage[dutch]{babel}
+
+\usepackage{caption}                % Caption
+\usepackage{amsmath}                % More general mathematical support
+\usepackage{amssymb}                % Mathematical symbols
+\usepackage{enumitem}               % Manipulate enumerate, mdwlist and paralist
+\usepackage{makecell}               % Improved tabular layout
+\usepackage[                        % Programmable Bibliographies and Citations
+style=ieee,                         % (default IEEE style citation)
+citestyle=ieee
+]{biblatex}                         
+%\usepackage{biblatex-chicago}      % biblatex-chicago allows you to format your references in 
+                                    % one of the specifications defined by the Chicago Manual 
+                                    % of Style. It replaces biblatex, so one of the two should 
+                                    % always be commented out! Read the package documentation 
+                                    % to see the different supported styles.
+
+\usepackage{lipsum}
+
+
+\title{Titel}
+\subtitle{Ondertitel of projectnummer}
+\faculty{Faculteit}
+\author{Voornaam Achternaam}
+\promotor{Promotor}
+\degree{Bachelor of Science in de informatica}
+\date{Academiejaar: 2018-2019}
+
+% General configuration and package setup
+
+\graphicspath{ {lib/img/} }                    % Map containing all images
+
+\begin{document}
+	\maketitle
+	\tableofcontents\newpage
+	
+	% Sections:
+	\chapter{Introductie}
+	
+	\section{Lorem ipsum dolor sit ame}
+	
+	\lipsum[1]
+	
+	\subsection{Consectetur adipiscing elit}
+	
+	\lipsum[2-6]
+\end{document}

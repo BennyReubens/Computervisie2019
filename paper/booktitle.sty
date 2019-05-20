@@ -1,0 +1,88 @@
+% Titlepage for the UGENTBOOK class
+%
+% author: Tom Lauwaerts
+% 2018/09/28
+
+\ProvidesPackage{booktitle}[2018/09/28 title page for the book template]
+\RequirePackage{graphicx}   % Images
+
+% Define the colors
+
+\RequirePackage{xcolor}
+
+% Colors for the new UGent housestyle
+\definecolor{uGentBlue}{RGB}{30,100,200}
+\definecolor{uGentYellow}{RGB}{255,210,0}
+\definecolor{secColour}{RGB}{45,140,168}   % TODO add options to choose faculty and set this accordingly
+\definecolor{grey}{RGB}{125,125,125}
+
+% To use the titlepage without the ugentbook class
+\providecommand{\coltitlepage}{\color{uGentBlue}}
+
+% Define macros and commands 
+
+% title
+\renewcommand{\title}[1]{
+  \def\inserttitle{#1}
+}
+
+% subtitle
+\renewcommand{\subtitle}[1]{
+	\def\insertsubtitle{#1}
+}
+
+% promotor
+\def\@promotor{}
+\newcommand{\promotor}[1]{
+    \def\insertpromotor{#1}
+}
+
+% semester
+\def\@faculty{}
+\newcommand{\faculty}[1]{
+	\def\insertfaculty{#1}
+}
+
+% author
+\newcommand{\insertauthor}{\@author}
+
+% degree
+\def\@degree{}
+\newcommand{\degree}[1]{
+	\def\insertdegree{#1}
+}
+
+% date
+\newcommand{\insertdate}{\@date}
+
+
+% Building the title page
+\renewcommand{\maketitle}{
+	\newgeometry{top=60bp,bottom=60bp}
+
+	\begin{titlepage}
+		\begin{figure}[h]
+			\includegraphics[height=1.2cm]{wetlogo} % Logo of the faculty of sciences
+		\end{figure}
+		\vspace*{3.5cm}
+		
+		\noindent
+		\fontsize{35pt}{60pt}\selectfont\textcolor{uGentBlue}{\textbf{\inserttitle}}\newline
+		\fontsize{20pt}{30pt}\selectfont\textcolor{uGentBlue}{\insertsubtitle}\newline
+		\vspace*{2cm}
+		
+		\noindent
+		\fontsize{16pt}{20pt}\selectfont
+		\ifthenelse{\equal{\insertauthor}{}}{}{\insertauthor\newline}
+		\ifthenelse{\equal{\insertpromotor}{}}{}{\insertpromotor\newline}
+		\fontsize{12pt}{20pt}\selectfont
+		\ifthenelse{\equal{\insertdegree}{}}{}{\insertdegree\newline}
+		\insertdate
+		
+		\begin{figure}[b]
+			\includegraphics[height=2.7cm]{ugentlogo} % Logo of the University of Ghent
+		\end{figure}
+	\end{titlepage}
+
+	\restoregeometry
+}
